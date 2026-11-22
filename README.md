@@ -58,3 +58,15 @@ userId (entero que identifica al usuario de prueba).
 - POST /tasks: crear tarea
 - PATCH /tasks/:id: actualizar tarea
 - DELETE /tasks/:id: eliminar tarea
+
+## API de tareas
+
+TaskFlow consulta tareas de JSONPlaceholder, una API pública de prueba.
+
+- URL: `GET https://jsonplaceholder.typicode.com/todos?userId=2`
+- Parámetro `userId`: filtra las tareas de un usuario (en el código: `TaskApiService.userId`).
+- Campos que llegan de la API: `id`, `userId`, `title` y `completed`.
+- Valores por defecto que completa TaskFlow: `description` ("Sin descripción (API)")
+  y `priority` ("Sin prioridad (API)"); no vienen del servidor.
+- Marcar una tarea como completada solo cambia la copia local en memoria;
+  la API no guarda el cambio y al reiniciar vuelve al valor original.
