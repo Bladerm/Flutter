@@ -70,3 +70,16 @@ TaskFlow consulta tareas de JSONPlaceholder, una API pública de prueba.
   y `priority` ("Sin prioridad (API)"); no vienen del servidor.
 - Marcar una tarea como completada solo cambia la copia local en memoria;
   la API no guarda el cambio y al reiniciar vuelve al valor original.
+
+  ## Estados de la lista
+
+TaskFlow distingue cuatro estados al consultar las tareas:
+
+- **Carga:** se muestra un indicador mientras la petición está pendiente.
+- **Éxito:** se muestra una tarjeta por cada tarea recibida.
+- **Vacío:** la API respondió bien pero sin tareas. Se muestra el mensaje y el botón "Actualizar".
+  Cómo provocarlo: cambiar `userId` a `9999` en `TaskApiService` y reiniciar.
+- **Error:** la petición falló. Se muestra el mensaje y el botón "Reintentar".
+  Cómo provocarlo: poner la red en modo Offline (F12 → Network) y pulsar actualizar.
+
+"Reintentar" vuelve a consultar la API sin reiniciar la app.
